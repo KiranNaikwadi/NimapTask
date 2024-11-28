@@ -17,14 +17,14 @@ public class ProductController {
 	@Autowired
     private ProductRepository productRepository;
 
-    //  GET all products (with optional pagination)
+    
     @GetMapping
     public List<Product> getAllProducts(@RequestParam(defaultValue = "0") int page) {
-        // For simplicity, we return all products without actual pagination
+
         return productRepository.findAll();
     }
 
-    //  POST - Create a new product
+    
     @PostMapping
     public ResponseEntity<String> createProduct(@RequestBody Product product) {
         productRepository.save(product);
