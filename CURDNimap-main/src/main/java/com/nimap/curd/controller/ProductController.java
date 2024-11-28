@@ -31,7 +31,7 @@ public class ProductController {
         return ResponseEntity.ok("Product added successfully!");
     }
 
-    //  GET product by ID
+    
     @GetMapping("/{id}")
     public ResponseEntity<?> getProductById(@PathVariable int id) {
         Optional<Product> product = productRepository.findById(id);
@@ -42,7 +42,6 @@ public class ProductController {
         }
     }
 
-    //  PUT - Update product by ID
     @PutMapping("/{id}")
     public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestBody Product productDetails) {
         Optional<Product> productOptional = productRepository.findById(id);
@@ -57,7 +56,6 @@ public class ProductController {
         }
     }
 
-    //  DELETE - Delete product by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable int id) {
         Optional<Product> product = productRepository.findById(id);
