@@ -16,20 +16,20 @@ public class CategoryController {
 	@Autowired
     private CategoryRepository categoryRepository;
 
-    //  GET all categories 
+   
     @GetMapping
     public List<Category> getAllCategories(@RequestParam(defaultValue = "0") int page) {
         return categoryRepository.findAll();
     }
 
-    //  POST - Create a new category
+   
     @PostMapping
     public ResponseEntity<String> createCategory(@RequestBody Category category) {
         categoryRepository.save(category);
         return ResponseEntity.ok("Category added successfully!");
     }
 
-    //  GET category by ID
+    
     @GetMapping("/{id}")
     public ResponseEntity<?> getCategoryById(@PathVariable int id) {
         Optional<Category> category = categoryRepository.findById(id);
@@ -40,7 +40,7 @@ public class CategoryController {
         }
     }
 
-    //  PUT - Update category by ID
+   
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCategory(@PathVariable int id, @RequestBody Category categoryDetails) {
         Optional<Category> categoryOptional = categoryRepository.findById(id);
@@ -54,7 +54,7 @@ public class CategoryController {
         }
     }
 
-    // DELETE - Delete category by ID
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable int id) {
         Optional<Category> category = categoryRepository.findById(id);
